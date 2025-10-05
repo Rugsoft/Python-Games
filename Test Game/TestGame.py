@@ -11,16 +11,17 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Test Game")
 clock = pygame.time.Clock()
 
-test_surface = pygame.Surface((200,100))
-test_surface.fill("yellow")
+sky_surface = pygame.image.load("graphics/Sky.jpg")
+ground_surface = pygame.image.load("graphics/Ground.png")
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-            
-    screen.blit(test_surface, (720,350))
+      
+    screen.blit(sky_surface, (0,0))
+    screen.blit(ground_surface, (0, 575))   
     
     pygame.display.update()
     clock.tick(fps)
