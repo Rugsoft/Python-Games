@@ -17,6 +17,7 @@ ground_surface = pygame.image.load("graphics/Ground.png")
 text_surface = test_font.render("Rugsoft", True, "Black")
 
 zombi_surface = pygame.image.load("graphics/zombie/zombie_run1.png")
+zombie_x_pos = 1300
 
 while True:
     for event in pygame.event.get():
@@ -27,7 +28,9 @@ while True:
     screen.blit(sky_surface, (0,0))
     screen.blit(ground_surface, (0, 575))   
     screen.blit(text_surface, (525, 50))
-    screen.blit(zombi_surface,(0, 349))
+    zombie_x_pos -= 3
+    if zombie_x_pos < -200: zombie_x_pos = 1400
+    screen.blit(zombi_surface,(zombie_x_pos, 349))
     
     pygame.display.update()
     clock.tick(fps)
