@@ -38,5 +38,8 @@ while True:
     screen.blit(zombi_surface, zombie_rect)
     screen.blit(player_surf, player_rect)
     
+    if player_rect.colliderect(zombie_rect):
+        print("colision")
+    
     pygame.display.update()
     clock.tick(fps)
