@@ -12,12 +12,14 @@ pygame.display.set_caption("Test Game")
 clock = pygame.time.Clock()
 test_font = pygame.font.Font("fonts/Super_Sliced.ttf", 55)
 
-sky_surface = pygame.image.load("graphics/Sky.jpg")
-ground_surface = pygame.image.load("graphics/Ground.png")
+sky_surface = pygame.image.load("graphics/Sky.jpg").convert()
+ground_surface = pygame.image.load("graphics/Ground.png").convert_alpha()
 text_surface = test_font.render("Rugsoft", True, "Black")
 
-zombi_surface = pygame.image.load("graphics/zombie/zombie_run1.png")
+zombi_surface = pygame.image.load("graphics/zombie/zombie_run1.png").convert_alpha()
 zombie_x_pos = 1300
+
+player_surf = pygame.image.load("graphics/character/character_walk1.png").convert_alpha()
 
 while True:
     for event in pygame.event.get():
@@ -31,6 +33,7 @@ while True:
     zombie_x_pos -= 3
     if zombie_x_pos < -200: zombie_x_pos = 1400
     screen.blit(zombi_surface,(zombie_x_pos, 349))
+    screen.blit(player_surf, (20, 349))
     
     pygame.display.update()
     clock.tick(fps)
